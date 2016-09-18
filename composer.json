@@ -1,0 +1,20 @@
+{
+  "name": "Task",
+  "description": "Task",
+  "keywords": ["task"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Edvardas Virketis",
+      "email": "yuseiduel@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Task\\": "src"
+    }
+  }
+}

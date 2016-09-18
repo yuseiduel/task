@@ -1,0 +1,27 @@
+CREATE TABLE `customers` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(120) NOT NULL,
+  `last_name` VARCHAR(120) NOT NULL,
+  `email` VARCHAR(120) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `orders` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `purchase_date` DATETIME NOT NULL,
+  `country` VARCHAR(120) NOT NULL,
+  `device` VARCHAR(120) NOT NULL,
+  `customer_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`customer_id`) REFERENCES `customers`(`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `order_items` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `ean` VARCHAR(120) NOT NULL,
+  `quantity` INT(11) NOT NULL,
+  `price` FLOAT(11) NOT NULL,
+  `order_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
